@@ -441,16 +441,16 @@
     <!-- ── RIGHT PANEL ── -->
     <div class="login-right">
       <div class="auth-tabs" role="tablist" aria-label="Account access">
-        <button class="auth-tab active" id="signInTab" type="button" role="tab" aria-selected="true" aria-controls="loginForm" onclick="setAuthMode('signin')">Sign in</button>
-        <button class="auth-tab" id="signUpTab" type="button" role="tab" aria-selected="false" aria-controls="signupForm" onclick="setAuthMode('signup')">Create account</button>
+        <button class="auth-tab active" id="signUpTab" type="button" role="tab" aria-selected="true" aria-controls="signupForm" onclick="setAuthMode('signup')">Create account</button>
+        <button class="auth-tab" id="signInTab" type="button" role="tab" aria-selected="false" aria-controls="loginForm" onclick="setAuthMode('signin')">Sign in</button>
       </div>
 
       <div class="login-right-header">
-        <h2 class="login-welcome" id="authHeading">Welcome back</h2>
-        <p class="login-subtitle" id="authSubtitle">Sign in to continue to your school portal.</p>
+        <h2 class="login-welcome" id="authHeading">Create your account</h2>
+        <p class="login-subtitle" id="authSubtitle">Set up your details to continue to your school portal.</p>
       </div>
 
-      <form class="login-form" id="loginForm" onsubmit="handleLogin(event)">
+      <form class="login-form" id="loginForm" onsubmit="handleLogin(event)" hidden>
 
         <!-- Role Selector -->
         <div class="form-group" style="margin-bottom: var(--space-lg);">
@@ -539,7 +539,7 @@
         </details>
       </form>
 
-      <form class="signup-form" id="signupForm" hidden>
+      <form class="signup-form" id="signupForm">
         <div class="form-group">
           <label class="form-label" for="signupName">Full name</label>
           <div class="input-group">
@@ -573,11 +573,27 @@
           </div>
         </div>
 
-        <p class="signup-note">Promise Academy will verify your details and help you activate portal access.</p>
+        <div class="form-group">
+          <label class="form-label" for="signupPassword">Create password</label>
+          <div class="input-group has-suffix">
+            <input class="form-control" id="signupPassword" name="password" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required />
+            <button type="button" class="input-suffix-btn" data-password-toggle="#signupPassword" aria-label="Show password">Show</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signupPasswordConfirm">Confirm password</label>
+          <div class="input-group has-suffix">
+            <input class="form-control" id="signupPasswordConfirm" name="passwordConfirm" type="password" placeholder="Enter your password again" autocomplete="new-password" minlength="8" required />
+            <button type="button" class="input-suffix-btn" data-password-toggle="#signupPasswordConfirm" aria-label="Show password">Show</button>
+          </div>
+        </div>
+
+        <p class="signup-note">Your password is used only for this preview flow and is not stored on this device.</p>
         <button type="submit" class="btn btn-primary login-submit signup-submit">
-          <span>Request account access</span>
+          <span>Create account and continue</span>
         </button>
-        <p class="signup-message" id="signupMessage" role="status" aria-live="polite"></p>
+        <p class="signup-message" id="signupMessage" role="alert" aria-live="assertive"></p>
       </form>
 
       <div class="login-right-footer">
@@ -606,21 +622,38 @@
       signUpTab.classList.toggle('active', isSignUp);
       signInTab.setAttribute('aria-selected', String(!isSignUp));
       signUpTab.setAttribute('aria-selected', String(isSignUp));
-      document.getElementById('authHeading').textContent = isSignUp ? 'Request portal access' : 'Welcome back';
+      document.getElementById('authHeading').textContent = isSignUp ? 'Create your account' : 'Welcome back';
       document.getElementById('authSubtitle').textContent = isSignUp
-        ? 'Tell us a little about yourself. The school will verify and activate your account.'
+        ? 'Create your account to continue to your school portal.'
         : 'Sign in to continue to your school portal.';
     }
 
     document.getElementById('signupForm').addEventListener('submit', event => {
       event.preventDefault();
-      const form = new FormData(event.currentTarget);
-      const subject = encodeURIComponent('Promise Academy portal access request');
-      const body = encodeURIComponent(
-        `Name: ${form.get('name')}\nEmail: ${form.get('email')}\nPhone: ${form.get('phone')}\nPortal: ${form.get('role')}`
-      );
-      document.getElementById('signupMessage').textContent = 'Opening your email app to send the access request.';
-      window.location.href = `mailto:promiseacademyemure@gmail.com?subject=${subject}&body=${body}`;
+      const signupForm = event.currentTarget;
+      const password = document.getElementById('signupPassword');
+      const passwordConfirm = document.getElementById('signupPasswordConfirm');
+      const message = document.getElementById('signupMessage');
+      message.textContent = '';
+
+      if (password.value !== passwordConfirm.value) {
+        message.textContent = 'Please make sure both passwords match.';
+        passwordConfirm.focus();
+        return;
+      }
+      message.textContent = '';
+
+      const role = document.getElementById('signupRole').value;
+      const routes = {
+        parent: 'portals/parent.html',
+        student: 'portals/student.html',
+        teacher: 'portals/teacher.html'
+      };
+
+      localStorage.setItem('pa_user_role', role);
+      localStorage.setItem('pa_user_email', document.getElementById('signupEmail').value);
+      localStorage.setItem('pa_user_name', document.getElementById('signupName').value);
+      window.location.href = routes[role] || 'dashboard.html';
     });
 
     // Role selector
