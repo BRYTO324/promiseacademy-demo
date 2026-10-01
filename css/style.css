@@ -1,72 +1,69 @@
-/* ============================================================
-   PROMISE ACADEMY — GLOBAL STYLES
-   Color system derived from school logo:
-   Primary: Deep Forest Green (#1a4d1a / #0d2e0d)
-   Secondary: Gold/Yellow (#d4a017 / #c8960f)
-   Accent: Light Gold (#fff99e / #f5d020)
-   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+/* PROMISE ACADEMY — shared brand system */
 
 :root {
   /* Primary Brand Colors — Deep Forest Green from logo */
-  --primary-color: #1e5c1e;
-  --primary-dark: #0d3310;
-  --primary-darker: #071a08;
-  --primary-light: #2d7a2d;
-  --primary-lighter: #3d9e3d;
-  --primary-ghost: #e8f5e8;
-  --primary-tint: #c8e6c8;
+  --primary-color: #1d6047;
+  --primary-dark: #154632;
+  --primary-darker: #0f3428;
+  --primary-light: #31785a;
+  --primary-lighter: #438b69;
+  --primary-ghost: #eaf2eb;
+  --primary-tint: #cee0d1;
 
   /* Secondary — Gold/Amber from logo yellow accent */
-  --secondary-color: #c8960f;
-  --secondary-dark: #9e7309;
-  --secondary-light: #e8b420;
-  --secondary-ghost: #fdf6e3;
-  --secondary-tint: #f9e4a0;
+  --secondary-color: #bd3b32;
+  --secondary-dark: #972820;
+  --secondary-light: #d75b52;
+  --secondary-ghost: #f8ebe8;
+  --secondary-tint: #edc7c1;
 
   /* Accent — Logo yellow highlight */
-  --accent-color: #f5d020;
-  --accent-light: #fff99e;
-  --accent-dark: #d4a817;
+  --accent-color: #e1b54d;
+  --accent-light: #f4df9d;
+  --accent-dark: #b88421;
 
   /* Semantic Colors */
-  --success-color: #2e7d32;
-  --success-light: #e8f5e9;
+  --success-color: #28704d;
+  --success-light: #e8f3ec;
   --warning-color: #f57c00;
   --warning-light: #fff3e0;
-  --danger-color: #c62828;
-  --danger-light: #ffebee;
-  --info-color: #0277bd;
-  --info-light: #e1f5fe;
+  --danger-color: #b8322e;
+  --danger-light: #fbeae8;
+  --info-color: #397b83;
+  --info-light: #e8f1f1;
 
   /* Backgrounds */
-  --background-color: #f4f6f4;
+  --background-color: #f4f6f2;
   --surface-color: #ffffff;
-  --surface-alt: #f8faf8;
-  --sidebar-bg: #0d3310;
-  --sidebar-hover: #1a4d1a;
-  --sidebar-active: #1e5c1e;
+  --surface-alt: #f7f9f6;
+  --sidebar-bg: #123c30;
+  --sidebar-hover: #194b3b;
+  --sidebar-active: #205b43;
   --topbar-bg: #ffffff;
 
   /* Text */
-  --text-primary: #1a2e1a;
-  --text-secondary: #4a6741;
-  --text-muted: #7a9478;
-  --text-light: #a8c4a8;
+  --text-primary: #1b2922;
+  --text-secondary: #485a4e;
+  --text-muted: #78867b;
+  --text-light: #aab5aa;
   --text-inverse: #ffffff;
   --text-on-primary: #ffffff;
   --text-on-secondary: #ffffff;
 
   /* Borders */
-  --border-color: #d4e6d4;
-  --border-light: #e8f0e8;
-  --border-dark: #b0ccb0;
+  --border-color: #dce4dc;
+  --border-light: #e8ede7;
+  --border-dark: #c6d1c7;
 
   /* Shadows */
-  --shadow-xs: 0 1px 3px rgba(13, 51, 16, 0.06);
-  --shadow-sm: 0 2px 8px rgba(13, 51, 16, 0.08);
-  --shadow-md: 0 4px 16px rgba(13, 51, 16, 0.10);
-  --shadow-lg: 0 8px 32px rgba(13, 51, 16, 0.12);
-  --shadow-xl: 0 16px 48px rgba(13, 51, 16, 0.15);
+  --shadow-xs: 0 1px 2px rgba(25, 53, 39, 0.04);
+  --shadow-sm: 0 2px 7px rgba(25, 53, 39, 0.05);
+  --shadow-md: 0 5px 16px rgba(25, 53, 39, 0.08);
+  --shadow-lg: 0 10px 28px rgba(25, 53, 39, 0.11);
+  --shadow-xl: 0 16px 40px rgba(25, 53, 39, 0.14);
 
   /* Spacing */
   --space-xs: 4px;
@@ -78,14 +75,14 @@
   --space-3xl: 64px;
 
   /* Border Radius */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
-  --radius-xl: 20px;
+  --radius-sm: 4px;
+  --radius-md: 5px;
+  --radius-lg: 7px;
+  --radius-xl: 8px;
   --radius-full: 9999px;
 
   /* Typography */
-  --font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  --font-family: 'DM Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
   --font-size-xs: 11px;
   --font-size-sm: 12px;
   --font-size-base: 14px;
@@ -142,6 +139,8 @@
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35);
 }
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
 
 /* ============================================================
    RESET & BASE

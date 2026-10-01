@@ -21,7 +21,7 @@
 
     if (!classId) {
       const container = document.getElementById('resultEntryContainer');
-      if (container) container.innerHTML = `<div class="empty-state" style="padding:60px;"><div class="empty-state-icon">📝</div><div class="empty-state-title">Select a Class</div><div class="empty-state-desc">Choose a class to begin entering results.</div></div>`;
+      if (container) container.innerHTML = `<div class="empty-state" style="padding:60px;"><div class="empty-state-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></div><div class="empty-state-title">Select a Class</div><div class="empty-state-desc">Choose a class to begin entering results.</div></div>`;
       return;
     }
 

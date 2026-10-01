@@ -15,32 +15,32 @@
     </a>
     <nav class="sidebar-nav">
       <div class="sidebar-section-label">Overview</div>
-      <a href="#" class="nav-item active" onclick="showTeacherView('dashboard',this)"><span class="nav-icon">🏠</span><span class="nav-label">Dashboard</span></a>
+      <a href="#" class="nav-item active" onclick="showTeacherView('dashboard',this)"><span class="nav-icon"><i class="fa-solid fa-house" aria-hidden="true"></i></span><span class="nav-label">Dashboard</span></a>
       <div class="sidebar-section-label">Teaching</div>
-      <a href="#" class="nav-item" onclick="showTeacherView('classes',this)"><span class="nav-icon">🏫</span><span class="nav-label">My Classes</span></a>
-      <a href="#" class="nav-item" onclick="showTeacherView('students',this)"><span class="nav-icon">🎓</span><span class="nav-label">My Students</span></a>
-      <a href="#" class="nav-item" onclick="showTeacherView('attendance',this)"><span class="nav-icon">📅</span><span class="nav-label">Mark Attendance</span></a>
-      <a href="#" class="nav-item" onclick="showTeacherView('results',this)"><span class="nav-icon">📊</span><span class="nav-label">Enter Results</span></a>
-      <a href="#" class="nav-item" onclick="showTeacherView('timetable',this)"><span class="nav-icon">🗓</span><span class="nav-label">My Timetable</span></a>
+      <a href="#" class="nav-item" onclick="showTeacherView('classes',this)"><span class="nav-icon"><i class="fa-solid fa-school" aria-hidden="true"></i></span><span class="nav-label">My Classes</span></a>
+      <a href="#" class="nav-item" onclick="showTeacherView('students',this)"><span class="nav-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span><span class="nav-label">My Students</span></a>
+      <a href="#" class="nav-item" onclick="showTeacherView('attendance',this)"><span class="nav-icon"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span><span class="nav-label">Mark Attendance</span></a>
+      <a href="#" class="nav-item" onclick="showTeacherView('results',this)"><span class="nav-icon"><i class="fa-solid fa-chart-column" aria-hidden="true"></i></span><span class="nav-label">Enter Results</span></a>
+      <a href="#" class="nav-item" onclick="showTeacherView('timetable',this)"><span class="nav-icon"><i class="fa-solid fa-calendar-week" aria-hidden="true"></i></span><span class="nav-label">My Timetable</span></a>
       <div class="sidebar-section-label">Communication</div>
-      <a href="#" class="nav-item" onclick="showTeacherView('announcements',this)"><span class="nav-icon">📢</span><span class="nav-label">Announcements</span></a>
+      <a href="#" class="nav-item" onclick="showTeacherView('announcements',this)"><span class="nav-icon"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></span><span class="nav-label">Announcements</span></a>
     </nav>
-    <div class="sidebar-footer"><a href="../index.html" class="nav-item" style="color:rgba(255,255,255,0.5)"><span class="nav-icon">🚪</span><span class="nav-label">Logout</span></a></div>
+    <div class="sidebar-footer"><a href="../index.html" class="nav-item" style="color:rgba(255,255,255,0.5)"><span class="nav-icon"><i class="fa-solid fa-arrow-right-from-bracket" aria-hidden="true"></i></span><span class="nav-label">Logout</span></a></div>
   </aside>
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <div class="main-content" id="mainContent">
     <header class="topbar" id="topbar">
-      <button class="topbar-toggle" id="sidebarToggle">☰</button>
+      <button class="topbar-toggle" id="sidebarToggle"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
       <div style="flex:1;display:flex;align-items:center;gap:8px;">
         <span style="font-size:14px;font-weight:600;color:var(--text-secondary);">Teacher Portal —</span>
         <strong id="teacherNameDisplay" style="color:var(--primary-color);">Mr. Chukwuemeka Obieze</strong>
       </div>
       <div class="topbar-actions">
-        <div class="role-badge"><span>👨‍🏫</span><span class="role-badge-text">Teacher</span></div>
-        <button class="topbar-btn" id="themeToggle">🌙</button>
+        <div class="role-badge"><span><i class="fa-solid fa-user-tie" aria-hidden="true"></i>‍<i class="fa-solid fa-school" aria-hidden="true"></i></span><span class="role-badge-text">Teacher</span></div>
+        <button class="topbar-btn" id="themeToggle"><i class="fa-solid fa-moon" aria-hidden="true"></i></button>
         <div class="avatar-placeholder avatar-sm" style="background:var(--info-color);color:white;font-weight:700;">CO</div>
-        <button class="topbar-toggle" id="mobileSidebarToggle" style="display:none;">☰</button>
+        <button class="topbar-toggle" id="mobileSidebarToggle" style="display:none;"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
       </div>
     </header>
 
@@ -78,8 +78,8 @@
           <h2 class="welcome-title">${TEACHER?.name||'Teacher'}</h2>
           <p class="welcome-subtitle">${TEACHER?.role||'Class Teacher'} · ${TEACHER?.department||'Secondary'} Department</p>
           <div class="welcome-meta">
-            <span class="welcome-meta-item">🏫 Classes: ${MY_CLASSES.map(c=>getClass(c)?.name||c).join(', ')}</span>
-            <span class="welcome-meta-item">📚 Subjects: ${MY_SUBJECTS.join(', ')}</span>
+            <span class="welcome-meta-item"><i class="fa-solid fa-school" aria-hidden="true"></i> Classes: ${MY_CLASSES.map(c=>getClass(c)?.name||c).join(', ')}</span>
+            <span class="welcome-meta-item"><i class="fa-solid fa-book-open" aria-hidden="true"></i> Subjects: ${MY_SUBJECTS.join(', ')}</span>
           </div>
         </div>
         <div style="position:relative;z-index:1;">
@@ -90,26 +90,26 @@
       </div>
 
       <div class="stats-grid" style="grid-template-columns:repeat(4,1fr);margin-bottom:var(--space-xl);">
-        <div class="stat-card green" style="padding:var(--space-lg);"><div class="stat-icon green" style="width:40px;height:40px;">🎓</div><div class="stat-content"><div class="stat-value">${myStudents.length}</div><div class="stat-label">My Students</div></div></div>
-        <div class="stat-card blue" style="padding:var(--space-lg);"><div class="stat-icon blue" style="width:40px;height:40px;">🏫</div><div class="stat-content"><div class="stat-value">${MY_CLASSES.length}</div><div class="stat-label">My Classes</div></div></div>
-        <div class="stat-card gold" style="padding:var(--space-lg);"><div class="stat-icon gold" style="width:40px;height:40px;">📚</div><div class="stat-content"><div class="stat-value">${MY_SUBJECTS.length}</div><div class="stat-label">Subjects</div></div></div>
-        <div class="stat-card green" style="padding:var(--space-lg);"><div class="stat-icon green" style="width:40px;height:40px;">📅</div><div class="stat-content"><div class="stat-value">94%</div><div class="stat-label">Class Attendance</div></div></div>
+        <div class="stat-card green" style="padding:var(--space-lg);"><div class="stat-icon green" style="width:40px;height:40px;"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div><div class="stat-content"><div class="stat-value">${myStudents.length}</div><div class="stat-label">My Students</div></div></div>
+        <div class="stat-card blue" style="padding:var(--space-lg);"><div class="stat-icon blue" style="width:40px;height:40px;"><i class="fa-solid fa-school" aria-hidden="true"></i></div><div class="stat-content"><div class="stat-value">${MY_CLASSES.length}</div><div class="stat-label">My Classes</div></div></div>
+        <div class="stat-card gold" style="padding:var(--space-lg);"><div class="stat-icon gold" style="width:40px;height:40px;"><i class="fa-solid fa-book-open" aria-hidden="true"></i></div><div class="stat-content"><div class="stat-value">${MY_SUBJECTS.length}</div><div class="stat-label">Subjects</div></div></div>
+        <div class="stat-card green" style="padding:var(--space-lg);"><div class="stat-icon green" style="width:40px;height:40px;"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></div><div class="stat-content"><div class="stat-value">94%</div><div class="stat-label">Class Attendance</div></div></div>
       </div>
 
       <!-- Quick Actions -->
       <div class="card" style="margin-bottom:var(--space-xl);">
-        <div class="card-header"><span class="card-title">⚡ Quick Actions</span></div>
+        <div class="card-header"><span class="card-title"><i class="fa-solid fa-bolt" aria-hidden="true"></i> Quick Actions</span></div>
         <div class="card-body" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:var(--space-md);">
-          <button class="btn btn-primary" onclick="showTeacherView('attendance')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;">📅</span>Mark Attendance</button>
-          <button class="btn btn-outline" onclick="showTeacherView('results')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;">📝</span>Enter Results</button>
-          <button class="btn btn-outline" onclick="showTeacherView('students')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;">🎓</span>View Students</button>
-          <button class="btn btn-outline" onclick="showTeacherView('timetable')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;">🗓</span>My Timetable</button>
+          <button class="btn btn-primary" onclick="showTeacherView('attendance')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i></span>Mark Attendance</button>
+          <button class="btn btn-outline" onclick="showTeacherView('results')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></span>Enter Results</button>
+          <button class="btn btn-outline" onclick="showTeacherView('students')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>View Students</button>
+          <button class="btn btn-outline" onclick="showTeacherView('timetable')" style="justify-content:center;flex-direction:column;height:80px;gap:6px;"><span style="font-size:24px;"><i class="fa-solid fa-calendar-week" aria-hidden="true"></i></span>My Timetable</button>
         </div>
       </div>
 
       <!-- Today's Timetable Preview -->
       <div class="card">
-        <div class="card-header"><span class="card-title">📅 Today's Schedule</span></div>
+        <div class="card-header"><span class="card-title"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Today's Schedule</span></div>
         <div class="card-body">
           ${['7:30 AM','9:00 AM','11:00 AM','12:30 PM'].map((t,i)=>`
             <div style="display:flex;align-items:center;gap:var(--space-md);padding:var(--space-sm) 0;border-bottom:1px solid var(--border-light);">
@@ -140,8 +140,8 @@
               <div style="text-align:center;"><div style="font-size:20px;font-weight:700;color:var(--secondary-color);">${cls?cls.arms.length:1}</div><div style="font-size:11px;color:var(--text-muted);">Arms</div></div>
             </div>
             <div style="display:flex;gap:var(--space-sm);margin-top:var(--space-lg);">
-              <button class="btn btn-primary btn-sm" style="flex:1;" onclick="showTeacherView('attendance')">📅 Attendance</button>
-              <button class="btn btn-outline btn-sm" style="flex:1;" onclick="showTeacherView('results')">📝 Results</button>
+              <button class="btn btn-primary btn-sm" style="flex:1;" onclick="showTeacherView('attendance')"><i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Attendance</button>
+              <button class="btn btn-outline btn-sm" style="flex:1;" onclick="showTeacherView('results')"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Results</button>
             </div>
           </div>`;
         }).join('')}
@@ -180,7 +180,7 @@
     document.getElementById('teacherContent').innerHTML=`
       <div class="page-header">
         <div class="page-header-left"><h1 class="page-title">Mark Attendance</h1><p class="page-subtitle">${today}</p></div>
-        <div class="page-header-right"><button class="btn btn-ghost" onclick="markAllPresent()">✅ All Present</button><button class="btn btn-primary" onclick="saveAtt()">💾 Save</button></div>
+        <div class="page-header-right"><button class="btn btn-ghost" onclick="markAllPresent()"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> All Present</button><button class="btn btn-primary" onclick="saveAtt()"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save</button></div>
       </div>
       <div class="card">
         <div class="table-wrapper">
@@ -233,7 +233,7 @@
         </div>
       </div>
       <div class="card" id="tcResultArea">
-        <div class="empty-state" style="padding:60px;"><div class="empty-state-icon">📝</div><div class="empty-state-title">Select a Class and Subject</div></div>
+        <div class="empty-state" style="padding:60px;"><div class="empty-state-icon"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i></div><div class="empty-state-title">Select a Class and Subject</div></div>
       </div>
     `;
   }
@@ -245,7 +245,7 @@
     const students=PA_DATA.students.filter(s=>s.classId===classId);
     const area=document.getElementById('tcResultArea');
     area.innerHTML=`
-      <div class="card-header"><span class="card-title">Results — ${subject} · ${getClass(classId)?.name||classId}</span><button class="btn btn-primary btn-sm" onclick="showToast('Saved','Results saved.','success')">💾 Save</button></div>
+      <div class="card-header"><span class="card-title">Results — ${subject} · ${getClass(classId)?.name||classId}</span><button class="btn btn-primary btn-sm" onclick="showToast('Saved','Results saved.','success')"><i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save</button></div>
       <div class="table-wrapper"><table class="table"><thead><tr><th>Student</th><th style="text-align:center;">CA (30)</th><th style="text-align:center;">Exam (70)</th><th style="text-align:center;">Total</th><th style="text-align:center;">Grade</th></tr></thead><tbody>
         ${students.map(s=>{
           const ca=Math.floor(Math.random()*12)+16;
@@ -274,7 +274,7 @@
           <table class="table" style="min-width:600px;">
             <thead><tr><th>Period</th>${days.map(d=>`<th style="text-align:center;">${d}</th>`).join('')}</tr></thead>
             <tbody>${periods.map((p,pi)=>{
-              if(p==='BREAK') return `<tr><td style="font-size:11px;font-weight:700;color:var(--text-muted);">${p}</td><td colspan="5" style="text-align:center;font-weight:700;color:var(--warning-color);">☕ BREAK</td></tr>`;
+              if(p==='BREAK') return `<tr><td style="font-size:11px;font-weight:700;color:var(--text-muted);">${p}</td><td colspan="5" style="text-align:center;font-weight:700;color:var(--warning-color);"><i class="fa-solid fa-mug-saucer" aria-hidden="true"></i> BREAK</td></tr>`;
               return `<tr><td style="font-size:11px;font-weight:700;color:var(--text-muted);white-space:nowrap;">${p}</td>${days.map((_,di)=>{
                 const hasClass=(di*3+pi)%3===0;
                 if(!hasClass) return `<td></td>`;
@@ -297,7 +297,7 @@
         ${['Staff Meeting — Friday 14th Feb, 12:00 PM in the Staff Room.','Second term examination timetable has been released. Please start invigilating preparation.','Report card submission deadline: April 10, 2025. All results must be entered by then.','Reminder: CA scores for all classes are due by end of March 20, 2025.'].map((t,i)=>`
           <div class="card" style="border-left:4px solid var(--primary-color);padding:0;">
             <div style="padding:var(--space-md) var(--space-lg);display:flex;gap:var(--space-md);">
-              <span style="font-size:22px;">📢</span>
+              <span style="font-size:22px;"><i class="fa-solid fa-bullhorn" aria-hidden="true"></i></span>
               <div><p style="font-size:13px;color:var(--text-primary);margin:0;line-height:1.6;">${t}</p></div>
             </div>
           </div>`).join('')}

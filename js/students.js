@@ -51,7 +51,7 @@
         <tr>
           <td colspan="9">
             <div class="empty-state" style="padding: 40px;">
-              <div class="empty-state-icon">🎓</div>
+              <div class="empty-state-icon"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i></div>
               <div class="empty-state-title">No students found</div>
               <div class="empty-state-desc">Try adjusting your filters or add a new student.</div>
               <button class="btn btn-primary" onclick="openAddStudentModal()">+ Add Student</button>
@@ -101,7 +101,7 @@
             <div class="action-btns">
               <button class="action-btn view" onclick="viewStudent('${s.id}')" title="View Profile">👁</button>
               <button class="action-btn edit" onclick="openEditModal('${s.id}')" title="Edit">✏️</button>
-              <button class="action-btn print" onclick="window.location='report-card.html?student=${s.id}'" title="Report Card">📄</button>
+              <button class="action-btn print" onclick="window.location='report-card.html?student=${s.id}'" title="Report Card"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></button>
               <button class="action-btn delete" onclick="deleteStudent('${s.id}')" title="Delete">🗑</button>
             </div>
           </td>

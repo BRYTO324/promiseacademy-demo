@@ -200,19 +200,19 @@
     if (!el) return;
 
     const activities = [
-      { icon: '🎓', text: 'New student <strong>Chiamaka Osei</strong> admitted to Primary 3', time: '2 hours ago', color: '#1e5c1e' },
-      { icon: '💰', text: 'Fee payment of <strong>₦120,000</strong> received from Okonkwo family', time: '3 hours ago', color: '#c8960f' },
-      { icon: '📊', text: 'Second term attendance report generated for JSS 2', time: '5 hours ago', color: '#0277bd' },
-      { icon: '📝', text: 'Result entry completed for <strong>SS 2 Science</strong>', time: 'Yesterday', color: '#2e7d32' },
-      { icon: '📋', text: 'New admission application received from <strong>Ridwan Balogun</strong>', time: 'Yesterday', color: '#f57c00' },
-      { icon: '👥', text: 'Staff payroll processed for January 2025', time: '2 days ago', color: '#00897b' }
+      { icon: 'fa-user-graduate', text: 'New student <strong>Chiamaka Osei</strong> admitted to Primary 3', time: '2 hours ago', color: '#1e5c1e' },
+      { icon: 'fa-coins', text: 'Fee payment of <strong>₦120,000</strong> received from Okonkwo family', time: '3 hours ago', color: '#c8960f' },
+      { icon: 'fa-chart-column', text: 'Second term attendance report generated for JSS 2', time: '5 hours ago', color: '#0277bd' },
+      { icon: 'fa-pen-to-square', text: 'Result entry completed for <strong>SS 2 Science</strong>', time: 'Yesterday', color: '#2e7d32' },
+      { icon: 'fa-clipboard-list', text: 'New admission application received from <strong>Ridwan Balogun</strong>', time: 'Yesterday', color: '#f57c00' },
+      { icon: 'fa-users', text: 'Staff payroll processed for January 2025', time: '2 days ago', color: '#00897b' }
     ];
 
     el.innerHTML = activities.map(a => `
       <div class="activity-item">
         <div class="activity-dot" style="background: ${a.color};"></div>
         <div class="activity-content">
-          <div class="activity-text">${a.icon} ${a.text}</div>
+          <div class="activity-text"><span class="activity-inline-icon"><i class="fa-solid ${a.icon}" aria-hidden="true"></i></span>${a.text}</div>
           <div class="activity-time">${a.time}</div>
         </div>
       </div>

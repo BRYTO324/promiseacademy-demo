@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Login — Promise Academy School Management System</title>
+  <title>Promise Academy | School Portal</title>
   <link rel="icon" type="image/jpeg" href="assets/logo/logo1.jpg" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/responsive.css" />
@@ -85,7 +85,6 @@
       box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
 
-    .login-brand-text { }
     .login-school-name {
       font-size: var(--font-size-xl);
       font-weight: var(--font-weight-bold);
@@ -373,6 +372,7 @@
       transform: translate(-50%, -50%);
     }
   </style>
+  <link rel="stylesheet" href="css/login.css" />
 </head>
 <body>
   <div class="login-layout">
@@ -386,64 +386,68 @@
           <img src="assets/logo/logo1.jpg" alt="Promise Academy Logo" class="login-logo" />
           <div class="login-brand-text">
             <div class="login-school-name">Promise Academy</div>
-            <div class="login-motto">Excellence in Learning, Service in Character</div>
+            <div class="login-motto">Keeping the Promise</div>
           </div>
         </div>
 
         <!-- Headline -->
         <h1 class="login-headline">
-          School Management<br/><span>Made Simple.</span>
+          A connected school<br/><span>community.</span>
         </h1>
         <p class="login-description">
-          A complete, modern platform for managing students, staff, fees, results, attendance and more — built for Promise Academy.
+          One place for Promise Academy administrators, teachers, students, and families to stay connected to school life.
         </p>
 
         <!-- Features -->
         <div class="login-features">
           <div class="login-feature">
-            <div class="login-feature-icon">🎓</div>
+            <div class="login-feature-icon">01</div>
             <div>
               <div class="login-feature-text">Nursery · Primary · Secondary</div>
-              <div class="login-feature-sub">All three sections, one unified system</div>
+              <div class="login-feature-sub">Learning support at every stage</div>
             </div>
           </div>
           <div class="login-feature">
-            <div class="login-feature-icon">📊</div>
+            <div class="login-feature-icon">02</div>
             <div>
-              <div class="login-feature-text">Real-time Dashboards & Reports</div>
-              <div class="login-feature-sub">Track attendance, fees and academic performance</div>
+              <div class="login-feature-text">Academic information in one place</div>
+              <div class="login-feature-sub">Follow attendance, fees, and results</div>
             </div>
           </div>
           <div class="login-feature">
-            <div class="login-feature-icon">🔒</div>
+            <div class="login-feature-icon">03</div>
             <div>
-              <div class="login-feature-text">Role-Based Access Control</div>
-              <div class="login-feature-sub">Admin, Teacher, Parent, Student portals</div>
+              <div class="login-feature-text">A view for every role</div>
+              <div class="login-feature-sub">Tools for school staff and families</div>
             </div>
           </div>
         </div>
 
         <!-- School Image -->
         <div class="login-image-showcase">
-          <img src="assets/images/img1.jpg" alt="Promise Academy Campus" class="login-showcase-img"
-               onerror="this.src='assets/images/school1.png'; this.onerror=null;" />
+          <img src="assets/images/school5.png" alt="Promise Academy students together at school" class="login-showcase-img" />
           <div class="login-showcase-overlay"></div>
           <div class="login-showcase-caption">
-            <p>📍 15 Education Avenue, Lekki Phase 1, Lagos State</p>
+            <p>Emure-Ekiti, Ekiti State, Nigeria</p>
           </div>
         </div>
       </div>
 
       <div class="login-left-footer">
-        &copy; 2025 Promise Academy. All rights reserved.
+        &copy; 2026 Promise Academy. All rights reserved.
       </div>
     </div>
 
     <!-- ── RIGHT PANEL ── -->
     <div class="login-right">
+      <div class="auth-tabs" role="tablist" aria-label="Account access">
+        <button class="auth-tab active" id="signInTab" type="button" role="tab" aria-selected="true" aria-controls="loginForm" onclick="setAuthMode('signin')">Sign in</button>
+        <button class="auth-tab" id="signUpTab" type="button" role="tab" aria-selected="false" aria-controls="signupForm" onclick="setAuthMode('signup')">Create account</button>
+      </div>
+
       <div class="login-right-header">
-        <h2 class="login-welcome">Welcome back</h2>
-        <p class="login-subtitle">Sign in to your Promise Academy account</p>
+        <h2 class="login-welcome" id="authHeading">Welcome back</h2>
+        <p class="login-subtitle" id="authSubtitle">Sign in to continue to your school portal.</p>
       </div>
 
       <form class="login-form" id="loginForm" onsubmit="handleLogin(event)">
@@ -454,27 +458,27 @@
           <div class="role-selector">
             <label class="role-option selected" onclick="selectRole(this, 'admin')">
               <input type="radio" name="role" value="admin" checked />
-              <span class="role-icon">🏫</span>
+              <span class="role-icon">AD</span>
               <span class="role-label">Admin</span>
             </label>
             <label class="role-option" onclick="selectRole(this, 'teacher')">
               <input type="radio" name="role" value="teacher" />
-              <span class="role-icon">👨‍🏫</span>
+              <span class="role-icon">TE</span>
               <span class="role-label">Teacher</span>
             </label>
             <label class="role-option" onclick="selectRole(this, 'accountant')">
               <input type="radio" name="role" value="accountant" />
-              <span class="role-icon">💼</span>
-              <span class="role-label">Accountant</span>
+              <span class="role-icon">FI</span>
+              <span class="role-label">Finance</span>
             </label>
             <label class="role-option" onclick="selectRole(this, 'parent')">
               <input type="radio" name="role" value="parent" />
-              <span class="role-icon">👨‍👩‍👧</span>
+              <span class="role-icon">PA</span>
               <span class="role-label">Parent</span>
             </label>
             <label class="role-option" onclick="selectRole(this, 'student')">
               <input type="radio" name="role" value="student" />
-              <span class="role-icon">🎒</span>
+              <span class="role-icon">ST</span>
               <span class="role-label">Student</span>
             </label>
           </div>
@@ -484,9 +488,9 @@
         <div class="form-group">
           <label class="form-label" for="email">Email Address / Username</label>
           <div class="input-group has-prefix">
-            <span class="input-prefix">✉️</span>
-            <input type="text" id="email" class="form-control" placeholder="admin@promiseacademy.edu.ng"
-              value="admin@promiseacademy.edu.ng" required autocomplete="username" />
+            <span class="input-prefix" aria-hidden="true">@</span>
+            <input type="text" id="email" class="form-control" placeholder="Email address or username"
+              required autocomplete="username" />
           </div>
         </div>
 
@@ -494,10 +498,10 @@
         <div class="form-group">
           <label class="form-label" for="password">Password</label>
           <div class="input-group has-prefix has-suffix">
-            <span class="input-prefix">🔑</span>
+            <span class="input-prefix" aria-hidden="true">*</span>
             <input type="password" id="password" class="form-control" placeholder="Enter your password"
-              value="admin123" required autocomplete="current-password" />
-            <button type="button" class="input-suffix-btn" data-password-toggle="#password">👁️</button>
+              required autocomplete="current-password" />
+            <button type="button" class="input-suffix-btn" data-password-toggle="#password" aria-label="Show password">Show</button>
           </div>
         </div>
 
@@ -516,26 +520,71 @@
         </button>
 
         <!-- Demo credentials -->
-        <div class="login-divider"><span>Demo credentials</span></div>
+        <details class="demo-disclosure">
+          <summary>Use a preview account</summary>
         <div class="demo-logins">
-          <div class="demo-login-row" onclick="fillDemo('admin@promiseacademy.edu.ng','admin123','admin')">
-            <span class="demo-login-role">🏫 Admin</span>
+          <button type="button" class="demo-login-row" onclick="fillDemo('admin@promiseacademy.edu.ng','admin123','admin')">
+            <span class="demo-login-role">Admin</span>
             <span class="demo-login-cred">admin@promiseacademy.edu.ng · admin123</span>
-          </div>
-          <div class="demo-login-row" onclick="fillDemo('teacher@promiseacademy.edu.ng','teacher123','teacher')">
-            <span class="demo-login-role">👨‍🏫 Teacher</span>
+          </button>
+          <button type="button" class="demo-login-row" onclick="fillDemo('teacher@promiseacademy.edu.ng','teacher123','teacher')">
+            <span class="demo-login-role">Teacher</span>
             <span class="demo-login-cred">teacher@... · teacher123</span>
-          </div>
-          <div class="demo-login-row" onclick="fillDemo('parent@gmail.com','parent123','parent')">
-            <span class="demo-login-role">👨‍👩‍👧 Parent</span>
+          </button>
+          <button type="button" class="demo-login-row" onclick="fillDemo('parent@gmail.com','parent123','parent')">
+            <span class="demo-login-role">Parent</span>
             <span class="demo-login-cred">parent@gmail.com · parent123</span>
+          </button>
+        </div>
+        </details>
+      </form>
+
+      <form class="signup-form" id="signupForm" hidden>
+        <div class="form-group">
+          <label class="form-label" for="signupName">Full name</label>
+          <div class="input-group">
+            <input class="form-control" id="signupName" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required />
           </div>
         </div>
+
+        <div class="form-group">
+          <label class="form-label" for="signupEmail">Email address</label>
+          <div class="input-group">
+            <input class="form-control" id="signupEmail" name="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+          </div>
+        </div>
+
+        <div class="signup-field-row">
+          <div class="form-group">
+            <label class="form-label" for="signupPhone">Phone number</label>
+            <div class="input-group">
+              <input class="form-control" id="signupPhone" name="phone" type="tel" placeholder="080..." autocomplete="tel" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="signupRole">Portal type</label>
+            <div class="input-group">
+              <select class="form-control" id="signupRole" name="role" required>
+                <option value="parent">Parent / guardian</option>
+                <option value="student">Student</option>
+                <option value="teacher">Teacher / staff</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <p class="signup-note">Promise Academy will verify your details and help you activate portal access.</p>
+        <button type="submit" class="btn btn-primary login-submit signup-submit">
+          <span>Request account access</span>
+        </button>
+        <p class="signup-message" id="signupMessage" role="status" aria-live="polite"></p>
       </form>
 
       <div class="login-right-footer">
-        Promise Academy School Management System v1.0.0<br />
-        <a href="#">Privacy Policy</a> · <a href="#">Terms of Use</a> · <a href="#">Support</a>
+        Portal preview · Need access help?<br />
+        <a href="tel:08060240507">08060240507</a> ·
+        <a href="tel:08028805071">08028805071</a> ·
+        <a href="mailto:promiseacademyemure@gmail.com">promiseacademyemure@gmail.com</a>
       </div>
     </div>
   </div>
@@ -544,6 +593,36 @@
   <div class="toast-container" id="toastContainer"></div>
 
   <script>
+    function setAuthMode(mode) {
+      const isSignUp = mode === 'signup';
+      const loginForm = document.getElementById('loginForm');
+      const signupForm = document.getElementById('signupForm');
+      const signInTab = document.getElementById('signInTab');
+      const signUpTab = document.getElementById('signUpTab');
+
+      loginForm.hidden = isSignUp;
+      signupForm.hidden = !isSignUp;
+      signInTab.classList.toggle('active', !isSignUp);
+      signUpTab.classList.toggle('active', isSignUp);
+      signInTab.setAttribute('aria-selected', String(!isSignUp));
+      signUpTab.setAttribute('aria-selected', String(isSignUp));
+      document.getElementById('authHeading').textContent = isSignUp ? 'Request portal access' : 'Welcome back';
+      document.getElementById('authSubtitle').textContent = isSignUp
+        ? 'Tell us a little about yourself. The school will verify and activate your account.'
+        : 'Sign in to continue to your school portal.';
+    }
+
+    document.getElementById('signupForm').addEventListener('submit', event => {
+      event.preventDefault();
+      const form = new FormData(event.currentTarget);
+      const subject = encodeURIComponent('Promise Academy portal access request');
+      const body = encodeURIComponent(
+        `Name: ${form.get('name')}\nEmail: ${form.get('email')}\nPhone: ${form.get('phone')}\nPortal: ${form.get('role')}`
+      );
+      document.getElementById('signupMessage').textContent = 'Opening your email app to send the access request.';
+      window.location.href = `mailto:promiseacademyemure@gmail.com?subject=${subject}&body=${body}`;
+    });
+
     // Role selector
     function selectRole(el, role) {
       document.querySelectorAll('.role-option').forEach(r => r.classList.remove('selected'));
@@ -590,7 +669,7 @@
 
     // Forgot password
     function showForgotPassword() {
-      alert('Please contact your school administrator to reset your password.\n\nEmail: admin@promiseacademy.edu.ng\nPhone: +234 802 345 6789');
+      alert('Please contact Promise Academy to reset your password.\n\nEmail: promiseacademyemure@gmail.com\nPhone: 08060240507 or 08028805071');
     }
 
     // Password toggle
@@ -599,7 +678,8 @@
         const input = document.querySelector(this.getAttribute('data-password-toggle'));
         if (input) {
           input.type = input.type === 'password' ? 'text' : 'password';
-          this.textContent = input.type === 'password' ? '👁️' : '🙈';
+          this.textContent = input.type === 'password' ? 'Show' : 'Hide';
+          this.setAttribute('aria-label', input.type === 'password' ? 'Show password' : 'Hide password');
         }
       });
     });

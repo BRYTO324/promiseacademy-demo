@@ -17,7 +17,7 @@
     const tbody = document.getElementById('paymentsBody');
     if (!tbody) return;
     if (!list.length) {
-      tbody.innerHTML = `<tr><td colspan="9"><div class="empty-state" style="padding:40px;"><div class="empty-state-icon">💰</div><div class="empty-state-title">No payments found</div></div></td></tr>`;
+      tbody.innerHTML = `<tr><td colspan="9"><div class="empty-state" style="padding:40px;"><div class="empty-state-icon"><i class="fa-solid fa-coins" aria-hidden="true"></i></div><div class="empty-state-title">No payments found</div></div></td></tr>`;
       return;
     }
     tbody.innerHTML = list.map(p => {
@@ -40,7 +40,7 @@
           <td><span class="badge ${statusBadge[p.status]||'badge-gray'} badge-dot">${p.status.charAt(0).toUpperCase()+p.status.slice(1)}</span></td>
           <td>
             <div class="action-btns">
-              ${p.receiptNo ? `<button class="action-btn print" onclick="printReceipt('${p.id}')" title="Print Receipt">🖨</button>` : ''}
+              ${p.receiptNo ? `<button class="action-btn print" onclick="printReceipt('${p.id}')" title="Print Receipt"><i class="fa-solid fa-print" aria-hidden="true"></i></button>` : ''}
               <button class="action-btn view" onclick="viewPayment('${p.id}')" title="View">👁</button>
             </div>
           </td>

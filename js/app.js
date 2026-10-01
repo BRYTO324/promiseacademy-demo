@@ -80,7 +80,9 @@
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('pa_theme', theme);
     if (themeToggle) {
-      themeToggle.innerHTML = theme === 'dark' ? '☀️' : '🌙';
+      themeToggle.innerHTML = theme === 'dark'
+        ? '<i class="fa-solid fa-sun" aria-hidden="true"></i>'
+        : '<i class="fa-solid fa-moon" aria-hidden="true"></i>';
       themeToggle.title = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
     }
   }
@@ -103,7 +105,12 @@
       document.body.appendChild(container);
     }
 
-    const icons = { success: '✅', warning: '⚠️', error: '❌', info: 'ℹ️' };
+    const icons = {
+      success: '<i class="fa-solid fa-circle-check" aria-hidden="true"></i>',
+      warning: '<i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>',
+      error: '<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i>',
+      info: '<i class="fa-solid fa-circle-info" aria-hidden="true"></i>'
+    };
     const toast = document.createElement('div');
     toast.className = `toast toast-${type}`;
     toast.innerHTML = `
@@ -112,7 +119,7 @@
         <div class="toast-title">${title}</div>
         ${message ? `<div class="toast-message">${message}</div>` : ''}
       </div>
-      <button class="toast-dismiss" onclick="this.closest('.toast').remove()">✕</button>
+      <button class="toast-dismiss" aria-label="Dismiss notification" onclick="this.closest('.toast').remove()"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
     `;
     container.appendChild(toast);
     requestAnimationFrame(() => toast.classList.add('show'));
@@ -225,7 +232,7 @@
         <div class="modal" style="max-width: 420px;">
           <div class="modal-header">
             <h3 class="modal-title" id="confirmTitle">Confirm Action</h3>
-            <button class="modal-close" onclick="closeModal('confirmModal')">✕</button>
+            <button class="modal-close" aria-label="Close dialog" onclick="closeModal('confirmModal')"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
           </div>
           <div class="modal-body">
             <p id="confirmMessage" style="color: var(--text-secondary); font-size: var(--font-size-md); line-height: 1.6;"></p>
@@ -268,7 +275,7 @@
           </div>
           ${PA_DATA.notifications.map(n => `
             <div class="notif-item ${n.read ? '' : 'unread'}">
-              <div class="notif-icon" style="background: var(--primary-ghost)">${n.icon}</div>
+              <div class="notif-icon" style="background: var(--primary-ghost)"><i class="fa-solid ${n.icon}" aria-hidden="true"></i></div>
               <div class="notif-content">
                 <div class="notif-text"><strong>${n.title}</strong> — ${n.message}</div>
                 <div class="notif-time">${n.time}</div>
@@ -350,6 +357,6 @@
   };
 
   // ── INIT ──────────────────────────────────────────────────────
-  console.log('✅ Promise Academy App initialized');
+  console.log('Promise Academy App initialized');
 
 })();

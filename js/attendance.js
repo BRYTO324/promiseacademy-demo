@@ -34,12 +34,12 @@
     if (!container) return;
 
     if (!selectedClass && !selectedSection) {
-      container.innerHTML = `<div class="empty-state" style="padding:60px;"><div class="empty-state-icon">📅</div><div class="empty-state-title">Select a Class</div><div class="empty-state-desc">Choose a section and class to mark attendance.</div></div>`;
+      container.innerHTML = `<div class="empty-state" style="padding:60px;"><div class="empty-state-icon"><i class="fa-regular fa-calendar-days" aria-hidden="true"></i></div><div class="empty-state-title">Select a Class</div><div class="empty-state-desc">Choose a section and class to mark attendance.</div></div>`;
       return;
     }
 
     if (!students.length) {
-      container.innerHTML = `<div class="empty-state" style="padding:60px;"><div class="empty-state-icon">🎓</div><div class="empty-state-title">No students in this class</div></div>`;
+      container.innerHTML = `<div class="empty-state" style="padding:60px;"><div class="empty-state-icon"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i></div><div class="empty-state-title">No students in this class</div></div>`;
       return;
     }
 
@@ -49,8 +49,8 @@
     container.innerHTML = `
       <div style="display:flex; align-items:center; justify-content:space-between; padding: var(--space-md) var(--space-xl); border-bottom: 1px solid var(--border-light); background:var(--surface-alt);">
         <div style="display:flex; gap:var(--space-sm);">
-          <button class="btn btn-success btn-sm" onclick="markAll('present')">✅ Mark All Present</button>
-          <button class="btn btn-warning btn-sm" onclick="markAll('absent')">❌ Mark All Absent</button>
+          <button class="btn btn-success btn-sm" onclick="markAll('present')"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Mark All Present</button>
+          <button class="btn btn-warning btn-sm" onclick="markAll('absent')"><i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> Mark All Absent</button>
         </div>
         <span style="font-size:13px;color:var(--text-muted);">${students.length} students</span>
       </div>

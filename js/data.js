@@ -187,11 +187,11 @@ const PA_DATA = {
 
   // ── NOTIFICATIONS ─────────────────────────────────────────────
   notifications: [
-    { id: "N001", type: "fee", title: "Fee Reminder", message: "Second term fees due for 47 students", time: "2 hours ago", read: false, icon: "💰" },
-    { id: "N002", type: "admission", title: "New Application", message: "New admission application from Chiamaka Osei for Primary 3", time: "5 hours ago", read: false, icon: "📋" },
-    { id: "N003", type: "attendance", title: "Low Attendance Alert", message: "JSS 2A has attendance below 80% this week", time: "Yesterday", read: false, icon: "📊" },
-    { id: "N004", type: "result", title: "Result Published", message: "First term results are now available for Secondary section", time: "2 days ago", read: true, icon: "📄" },
-    { id: "N005", type: "general", title: "Staff Meeting", message: "Staff meeting scheduled for Friday 14th Feb, 12:00 PM", time: "3 days ago", read: true, icon: "📢" }
+    { id: "N001", type: "fee", title: "Fee Reminder", message: "Second term fees due for 47 students", time: "2 hours ago", read: false, icon: "fa-coins" },
+    { id: "N002", type: "admission", title: "New Application", message: "New admission application from Chiamaka Osei for Primary 3", time: "5 hours ago", read: false, icon: "fa-clipboard-list" },
+    { id: "N003", type: "attendance", title: "Low Attendance Alert", message: "JSS 2A has attendance below 80% this week", time: "Yesterday", read: false, icon: "fa-chart-column" },
+    { id: "N004", type: "result", title: "Result Published", message: "First term results are now available for Secondary section", time: "2 days ago", read: true, icon: "fa-file-lines" },
+    { id: "N005", type: "general", title: "Staff Meeting", message: "Staff meeting scheduled for Friday 14th Feb, 12:00 PM", time: "3 days ago", read: true, icon: "fa-bullhorn" }
   ],
 
   // ── GRADING SYSTEM ────────────────────────────────────────────
